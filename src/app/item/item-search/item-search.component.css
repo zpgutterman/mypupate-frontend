@@ -1,0 +1,129 @@
+body {
+  width: 800px;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.selected{
+  font-weight: 600;
+}
+
+.itemResults{
+  cursor: pointer;
+}
+
+.results{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+}
+
+.clear{
+  float: right;
+margin-top: -60px;
+margin-right: 10px;
+font-weight: 100;
+opacity: .3;
+cursor: pointer;
+}
+
+.inputLabel{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: xx-large;
+  float:left;
+  position: absolute;
+margin-left: -220px;
+margin-top: 33px;
+color: #00A5CF;
+}
+.container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.containerunsafe {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.containersafe {
+  width: 400px;
+  margin: 0 auto;
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;
+}
+
+:-ms-input-placeholder {
+   text-align: center;
+}
+
+.search {
+  text-align: center;
+  display: block;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-before: 0em;
+  -webkit-padding-start: 0em;
+  -webkit-padding-end: 0em;
+  -webkit-padding-after: 0em;
+  border: 0px;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  min-width: -webkit-min-content;
+  padding: 30px;
+}
+.ghost-input {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: xx-large;
+  font-weight:300;
+  width: 100%;
+  font-size: 25px;
+  border:0px;
+  outline: none;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #4b545f;
+  background: #fff;
+  font-family: Open Sans,Verdana;
+  padding: 10px 15px;
+  margin: 30px 0px;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.ghost-input {
+  border-bottom:1px solid #ddd;
+}
+
+.ghost-input:focus {
+  border-bottom:1px solid #ddd;
+}
+
+
+:focus::-webkit-input-placeholder {
+  overflow: visible;
+  opacity: .5;
+  transform: translate(-30%);
+  -webkit-transition: all 1.35s ease-in-out;
+  visibility: visible !important;
+
+}

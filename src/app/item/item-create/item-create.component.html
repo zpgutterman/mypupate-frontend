@@ -1,0 +1,61 @@
+<div class="container">
+<div class="row">
+   <div class="col">
+     <section>
+       <form novalidate [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+         <fieldset>
+           <div class="form-group">
+             <label>Name</label>
+             <input type="text"
+                    class="form-control"
+                    formControlName="name">
+           </div>
+
+           <div class="form-group">
+             <label>Type</label>
+             <input type="text"
+                    class="form-control"
+                    formControlName="type">
+           </div>
+           <div class="form-group">
+             <label>Safe</label>
+             <input type="text"
+                    class="form-control"
+                    formControlName="safe">
+           </div>
+         </fieldset>
+
+         <div class="form-group">
+           <label>Amount</label>
+           <input type="text"
+                  class="form-control"
+                  formControlName="amount">
+         </div>
+         <div class="form-group">
+           <label>Amount Unit</label>
+           <input type="text"
+                  class="form-control"
+                  formControlName="amountUnit">
+         </div>
+         <div class="form-group">
+           <label>Description</label>
+           <input type="text"
+                  class="form-control"
+                  formControlName="description">
+         </div>
+         <div class="form-group">
+           <label>Reference</label>
+           <input type="text"
+                  class="form-control"
+                  formControlName="reference">
+         </div>
+
+
+         <button type="submit" class="btn btn-primary"  [disabled]="!itemForm.valid" >Submit</button>
+         <button type="button" class="btn btn-warning" (click)="redirectItemPage()">Cancel</button>
+         <pre>{{itemForm.value | json}}</pre>
+       </form>
+     </section>
+   </div>
+ </div>
+</div>

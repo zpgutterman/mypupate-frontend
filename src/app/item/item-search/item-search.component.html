@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="search">
+    <div class="inputLabel" [@leftSlide]>
+      my pup ate a
+   </div>
+    <div class="input">
+      <input type="text" id="itemInput" class="ghost-input" [(ngModel)]="term" (ngModelChange)="onSearchChange()">
+      <div *ngIf=term>
+      <a class="clear" (click)="clearSearch()">x</a>
+    </div>
+    </div>
+    <div *ngIf="showResults()" class="results">
+       <div *ngFor = "let item of items |filter:term | slice:0:6" (click)="onSelect(item)" [class.selected]="item === selectedItem" >
+         <p>
+           <span class="itemResult">{{item.name | lowercase}}</span>
+         </p>
+
+       </div>
+     </div>
+    </div>
+       <app-item-detail [item]="selectedItem"></app-item-detail>
+
+  </div>
