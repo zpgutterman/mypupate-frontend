@@ -56,7 +56,7 @@ export class ItemSearchComponent implements OnInit {
     if (this.selectedItem == null) {
       return "container";
     } else {
-      if (this.selectedItem.safe == 'Yes') {
+      if (this.selectedItem.itemDetail.safe == 'Yes') {
         return "containersafe";
       } else {
         return "containerunsafe";
@@ -93,7 +93,7 @@ export class ItemSearchComponent implements OnInit {
   onSelect(item: Item): void {
     this.selectedItem = item;
     this.term = this.selectedItem.name.toLowerCase();
-    if (item.safe == 'Yes') {
+    if (item.itemDetail.safe == 'Yes') {
       console.log('safe');
     } else {
       console.log('not safe');

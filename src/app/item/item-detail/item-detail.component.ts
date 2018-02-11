@@ -30,9 +30,9 @@ export class ItemDetailComponent implements OnInit {
     if (this.item == null) {
       return "null";
     } else {
-      if (this.item.safe == 'Yes') {
+      if (this.item.itemDetail.safe == 'Yes') {
         return "safe";
-      } else if (this.item.safe == 'Maybe') {
+      } else if (this.item.itemDetail.safe == 'Maybe') {
         return "unclear";
       } else {
         return "unsafe";

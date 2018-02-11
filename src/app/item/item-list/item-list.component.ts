@@ -19,7 +19,7 @@ export class ItemListComponent implements OnInit {
   }
 
   getAllItems() {
-    this.itemService.findAll().subscribe(
+    this.itemService.findAllDetails().subscribe(
       items => {
         this.items = items;
       },

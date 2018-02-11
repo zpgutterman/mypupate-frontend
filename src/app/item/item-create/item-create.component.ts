@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ItemService} from "../item.service";
 import {Item} from "../Item";
+import {ItemDetail} from "../ItemDetail";
 import {ActivatedRoute, Router} from '@angular/router';
 
 
@@ -41,12 +42,12 @@ export class ItemCreateComponent implements OnInit, OnDestroy {
             this.id = item.id;
             this.itemForm.patchValue({
             name: item.name,
-            safe: item.safe,
-            type: item.type,
-            amount: item.amount,
-            amountUnit: item.amountUnit,
-            description: item.description,
-            reference: item.reference,
+            safe: item.itemDetail.safe,
+            type: item.itemDetail.type,
+            amount: item.itemDetail.amount,
+            amountUnit: item.itemDetail.amountUnit,
+            description: item.itemDetail.description,
+            reference: item.itemDetail.reference,
           });
          },error => {
           console.log(error);
@@ -64,11 +65,13 @@ export class ItemCreateComponent implements OnInit, OnDestroy {
   onSubmit() {
       if (this.itemForm.valid) {
         if (this.id) {
-        let item: Item = new Item(this.id, this.itemForm.controls['name'].value, this.itemForm.controls['type'].value, this.itemForm.controls['safe'].value, this.itemForm.controls['amount'].value, this.itemForm.controls['amountUnit'].value, this.itemForm.controls['description'].value, this.itemForm.controls['reference'].value, null, null, null);
+        let itemDetail : ItemDetail = new ItemDetail(null, this.itemForm.controls['type'].value, this.itemForm.controls['safe'].value, this.itemForm.controls['amount'].value, this.itemForm.controls['amountUnit'].value, this.itemForm.controls['description'].value, this.itemForm.controls['reference'].value, null, null, null)
+        let item: Item = new Item(this.id, this.itemForm.controls['name'].value, itemDetail);
         console.log("updating item with id " + this.id);
         this.itemService.updateItem(item).subscribe();
       } else {
-        let item: Item = new Item(null, this.itemForm.controls['name'].value, this.itemForm.controls['type'].value, this.itemForm.controls['safe'].value, this.itemForm.controls['amount'].value, this.itemForm.controls['amountUnit'].value, this.itemForm.controls['description'].value, this.itemForm.controls['reference'].value, null, null, null);
+        let itemDetail : ItemDetail = new ItemDetail(null, this.itemForm.controls['type'].value, this.itemForm.controls['safe'].value, this.itemForm.controls['amount'].value, this.itemForm.controls['amountUnit'].value, this.itemForm.controls['description'].value, this.itemForm.controls['reference'].value, null, null, null)
+        let item: Item = new Item(null, this.itemForm.controls['name'].value, itemDetail);
         console.log("saving new item " + item.name);
 
         this.itemService.saveItem(item).subscribe();
