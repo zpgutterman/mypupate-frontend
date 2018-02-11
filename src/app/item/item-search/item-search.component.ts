@@ -91,13 +91,15 @@ export class ItemSearchComponent implements OnInit {
   }
 
   onSelect(item: Item): void {
-    this.selectedItem = item;
-    this.term = this.selectedItem.name.toLowerCase();
-    if (item.itemDetail.safe == 'Yes') {
-      console.log('safe');
-    } else {
-      console.log('not safe');
-    }
+    this.itemService.findById(item.id).subscribe(
+      foundItem => {
+        this.selectedItem = foundItem;
+      },
+      err => {
+        console.log(err);
+      }
+    )
+    this.term = item.name.toLowerCase();
   }
 
 }
